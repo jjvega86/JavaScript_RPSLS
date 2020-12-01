@@ -20,12 +20,20 @@
 
 class Game{
     constructor(){
-        this.PlayerOne = new Player();
-        this.PlayerTwo = new Player();
+        this.playerOne = new Human("Tim");
+        this.playerTwo = new Computer("Hal");
 
     }
 
+    runGame(){
+        this.PlayerOne.displayGestures();
+        this.PlayerTwo.displayGestures();
+    }
+
 }
+
+let game = new Game();
+game.runGame();
 
 
 

@@ -12,7 +12,7 @@ class Rock extends Gesture{
     constructor(){
         super();
         this.name = "Rock";
-        this.losesTo = [new Paper(), new Spock()];
+        this.losesTo = ["Paper", "Spock"];
     }
     
 }
@@ -21,7 +21,7 @@ class Paper extends Gesture{
     constructor(){
         super();
         this.name = "Paper";
-        this.losesTo = [new Scissors(), new Lizard()];
+        this.losesTo = ["Scissors", "Lizard"];
     }
     
 }
@@ -30,7 +30,7 @@ class Scissors extends Gesture{
     constructor(){
         super();
         this.name = "Scissors";
-        this.losesTo = [new Rock(), new Spock()];
+        this.losesTo = ["Rock", "Spock"];
     }   
 }
 
@@ -38,7 +38,7 @@ class Lizard extends Gesture{
     constructor(){
         super();
         this.name = "Lizard";
-        this.losesTo = [new Rock(), new Scissors()];
+        this.losesTo = ["Rock", "Scissors"];
     }
     
 }
@@ -47,7 +47,7 @@ class Spock extends Gesture{
     constructor(){
         super();
         this.name = "Spock";
-        this.losesTo = [new Lizard(), new Paper()];
+        this.losesTo = ["Lizard", "Paper"];
     }
     
 }
