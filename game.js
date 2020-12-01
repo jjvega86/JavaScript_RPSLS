@@ -27,7 +27,6 @@ class Game{
 
     runGame(){
         this.PlayerOne.displayGestures();
-        this.PlayerTwo.displayGestures();
     }
 
 }

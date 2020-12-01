@@ -15,7 +15,7 @@ class Player{ // parent
 
 class Human extends Player{
     constructor(name){
-        super(name);
+        super(name,gestureOptions, currentScore);
         this.name = name;
         
     }
