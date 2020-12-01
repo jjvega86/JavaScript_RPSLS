@@ -15,7 +15,7 @@
 // Gesture(parent) => Rock(child), Paper(child), Scissors(child), Lizard(child), Spock(child). Have an array that specifies "loses to" for each
 
 // TO DO:
-// 1 - Split classes into different files. How to link into base game.js?
+// 1 - Split classes into different files. How to link into base game.js? 
 
 
 class Game{
