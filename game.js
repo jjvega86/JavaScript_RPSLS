@@ -14,43 +14,18 @@
 // Player(parent) => Human(child), Computer(child). Has an array of Gestures. Can ChooseGesture and display gesture options.
 // Gesture(parent) => Rock(child), Paper(child), Scissors(child), Lizard(child), Spock(child). Have an array that specifies "loses to" for each
 
+// TO DO:
+// 1 - Split classes into different files. How to link into base game.js?
+
 
 class Game{
+    constructor(){
+        this.PlayerOne = new Player();
+        this.PlayerTwo = new Player();
+
+    }
 
 }
 
-class Player{ // parent
 
-}
 
-class Human extends Player{
-
-}
-
-class Computer extends Player{
-
-}
-
-class Gesture{ // parent
-
-}
-
-class Rock extends Gesture{
-
-}
-
-class Paper extends Gesture{
-    
-}
-
-class Scissors extends Gesture{
-    
-}
-
-class Lizard extends Gesture{
-    
-}
-
-class Spock extends Gesture{
-    
-}
