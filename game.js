@@ -19,7 +19,6 @@
 // 2 - Write ChooseGesture methods for both Human and Computer child classes DONE
 // 3 - Write DisplayRules method for Game Class and call in runGame DONE
 // 4 - Write game logic in multiple helper methods that get called in runGame DONE
-// 5 - Implement multiple options for rounds (5,7,9, etc)
 
 debugger; // drop breakpoint before prompt functions run
 class Game{
@@ -36,7 +35,6 @@ class Game{
         // compare gestures DONE
         // check for winner DONE
         // display winner DONE
-        // ask to play again
 
         let currentRound = 0;
         let gameFinished;
