@@ -15,7 +15,10 @@
 // Gesture(parent) => Rock(child), Paper(child), Scissors(child), Lizard(child), Spock(child). Have an array that specifies "loses to" for each
 
 // TO DO:
-// 1 - Split classes into different files. How to link into base game.js? 
+// 1 - Split classes into different files. How to link into base game.js? DONE
+// 2 - Write ChooseGesture methods for both Human and Computer child classes
+// 3 - Write DisplayRules method for Game Class and call in runGame
+// 4 - Write game logic in multiple helper methods that get called in runGame
 
 
 class Game{
@@ -26,7 +29,7 @@ class Game{
     }
 
     runGame(){
-        this.PlayerOne.displayGestures();
+        this.playerOne.displayGestures();
     }
 
 }
