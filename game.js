@@ -29,7 +29,7 @@ class Game{
     }
 
     runGame(){
-        this.playerOne.displayGestures();
+        this.playerOne.chooseGesture();
     }
 
 }

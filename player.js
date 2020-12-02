@@ -22,16 +22,21 @@ class Player{ // parent
         switch(input){
             case "rock":
                 choice = this.gestureOptions[0];
+                break;
             case "paper":
                 choice = this.gestureOptions[1];
+                break;
             case "scissors":
                 choice = this.gestureOptions[2];
+                break;
             case "lizard":
                 choice = this.gestureOptions[3];
+                break;
             case "spock":
                 choice = this.gestureOptions[4];
+                break;
             default:
-                this.chooseGesture;
+                this.chooseGesture();
         }
 
         return choice;
@@ -57,6 +62,7 @@ class Computer extends Player{
 
     chooseGesture(){
         let gestureIndex = this.generateRandomNumber(4);
+        return this.gestureOptions[gestureIndex];
     }
 
 }
