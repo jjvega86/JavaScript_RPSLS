@@ -1,4 +1,5 @@
 // Great video for reference about inheritance (especially extends and super): https://www.youtube.com/watch?v=CwAU1wYeHiM&ab_channel=StephenMayeux
+// why inheritance? DRY - Don't repeat yourself
 
 class Player{ // parent
     constructor(name){

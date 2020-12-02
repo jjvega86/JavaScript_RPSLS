@@ -29,7 +29,24 @@ class Game{
     }
 
     runGame(){
-        this.playerOne.chooseGesture();
+        // display rules
+        // multiplayer or single player?
+        // compare gestures
+        // check for winner
+        // display winner
+        // ask to play again
+        this.displayRules();
+
+        let choice1 = this.playerOne.chooseGesture();
+        let choice2 = this.playerTwo.chooseGesture();
+    }
+
+    displayRules(){
+        console.log("Welcome to Rock, Paper, Scissors, Lizard, Spock!");
+        console.log("Rock crushes Scissors, Paper Covers Rock, Rock Crushes Lizard,");
+        console.log("Lizard poisons Spock, Spock smashes Scissors, Scissors dcapitates Lizard,");
+        console.log("Lizard eats Paper, Paper disproves Spock, and Spock vaporizes Rock!");
+        console.log("Each player chooses a gesture. One gesture will beat the other. Best out of three wins!");
     }
 
 }
