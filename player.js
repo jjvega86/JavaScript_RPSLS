@@ -17,24 +17,24 @@ class Player{ // parent
     chooseGesture(){
         this.displayGestures();
         var input = prompt("Which gesture would you like to choose?").toLocaleLowerCase();
-        let choiceIndex = 0;
+        let choice;
 
         switch(input){
             case "rock":
-                choiceIndex = 0;
+                choice = this.gestureOptions[0];
             case "paper":
-                choiceIndex = 1;
+                choice = this.gestureOptions[1];
             case "scissors":
-                choiceIndex = 2;
+                choice = this.gestureOptions[2];
             case "lizard":
-                choiceIndex = 3;
+                choice = this.gestureOptions[3];
             case "spock":
-                choiceIndex = 4;
+                choice = this.gestureOptions[4];
             default:
                 this.chooseGesture;
         }
 
-        return choiceIndex;
+        return choice;
     }
 }
 
@@ -50,9 +50,13 @@ class Computer extends Player{
         super(name);      
     }
 
-    generateRandomNumber() {
-        let randomNumber = Math.floor(Math.random() * this.numberOfSides) + 1;
+    generateRandomNumber(maxLimit) {
+        let randomNumber = Math.floor(Math.random() * maxLimit) + 1;
         return randomNumber;
+    }
+
+    chooseGesture(){
+        let gestureIndex = this.generateRandomNumber(4);
     }
 
 }
