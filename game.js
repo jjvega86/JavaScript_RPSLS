@@ -16,8 +16,8 @@
 
 // TO DO:
 // 1 - Split classes into different files. How to link into base game.js? DONE
-// 2 - Write ChooseGesture methods for both Human and Computer child classes
-// 3 - Write DisplayRules method for Game Class and call in runGame
+// 2 - Write ChooseGesture methods for both Human and Computer child classes DONE
+// 3 - Write DisplayRules method for Game Class and call in runGame DONE
 // 4 - Write game logic in multiple helper methods that get called in runGame
 
 
@@ -36,6 +36,10 @@ class Game{
         // check for winner
         // display winner
         // ask to play again
+
+        let currentRound = 0;
+        let roundWinner = this.compareGestures();
+        
         
 
         
@@ -51,12 +55,12 @@ class Game{
 
     chooseGameTypeAndSetNames(){
         console.clear(); // clears the console after rules are displayed
-        let input = prompt("Would you like to play multiplayer or single player? <1 for Single, 2 for Multi>").toLocaleLowerCase();
+        let input = prompt("Would you like to play multiplayer or single player? <1 for Single, 2 for Multi>");
 
-        if (input === 1){
+        if (input === "1"){
             this.playerTwo = new Computer("Hal");
         }
-        else if (input === 2){
+        else if (input === "2"){
             this.playerTwo = new Human(prompt("What is the name of Player 2?"));
         }
         else{
@@ -67,9 +71,19 @@ class Game{
     }
 
     compareGestures(){
-        let choice1 = this.playerOne.chooseGesture();
-        let choice2 = this.playerTwo.chooseGesture();
+        let playerOneChoice = this.playerOne.chooseGesture(); // Rock
+        let playerTwoChoice = this.playerTwo.chooseGesture(); // Scissors
 
+        for(var i = 0; i <= playerOneChoice.losesTo.length - 1; i++){
+
+            if(playerOneChoice.name === playerTwoChoice.losesTo[i]){ // if Player 2's choice is in the Player 2 LosesTo array, Player 1 wins
+                this.playerOne.currentScore = 1;
+            }
+            else if(playerTwoChoice.name === playerOneChoice.losesTo[i]){ // if Player 1's choice is in the Player 1 LosesTo array, Player 2 wins
+                this.playerTwo.currentScore = 1;
+            }
+        }
+    
     }
 
 }
