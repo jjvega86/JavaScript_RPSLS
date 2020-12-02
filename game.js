@@ -38,13 +38,15 @@ class Game{
         // ask to play again
 
         let currentRound = 0;
-        let winner;
+        let gameFinished;
 
-        while(!winner){
+        while(!gameFinished){
             this.compareGestures();
-            winner = this.checkForWinner();
+            gameFinished = this.checkForGameFinish(currentRound);
             currentRound++;
         }
+
+        this.declareWinner();
            
     }
 
@@ -89,13 +91,21 @@ class Game{
     
     }
 
-    checkForWinner(){
-        let winnerFound = false;
-        if(this.playerOne.currentScore === 3 || this.playerTwo.currentScore === 3){
-            winnerFound = true;
+    checkForGameFinish(currentRound){
+        let gameFinished = false;
+        if(currentRound === 3){ // refactor for user choice of rounds
+            gameFinished = true;
         }
+        return gameFinished;
+    }
 
-        return winnerFound;
+    declareWinner(){
+        if(this.playerOne.currentScore > this.playerTwo.currentScore ){
+            console.log("Player One Wins!");
+        }
+        else{
+            console.log("PLayer Two Wins!");
+        }
     }
 
 }
