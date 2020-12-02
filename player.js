@@ -13,31 +13,41 @@ class Player{ // parent
             console.log(this.gestureOptions[i].name);
         }
     }
+
+    chooseGesture(){
+        this.displayGestures();
+        var input = prompt("Which gesture would you like to choose?").toLocaleLowerCase();
+        let choiceIndex = 0;
+
+        switch(input){
+            case "rock":
+                choiceIndex = 0;
+            case "paper":
+                choiceIndex = 1;
+            case "scissors":
+                choiceIndex = 2;
+            case "lizard":
+                choiceIndex = 3;
+            case "spock":
+                choiceIndex = 4;
+            default:
+                this.chooseGesture;
+        }
+
+        return choiceIndex;
+    }
 }
 
 class Human extends Player{ // extends allows for inheriting of any properties and method from parent
     constructor(name){
         super(name); // super calls the constructor method of parent class. Pass in required parameters, can also override if needed     
     }
-
-    displayGestures(){
-
-        for(var i = 0; i <= this.gestureOptions.length - 1; i++){
-            console.log(this.gestureOptions[i].name);
-        }
-    }
+   
 }
 
 class Computer extends Player{
     constructor(name){
         super(name);      
-    }
-    
-    displayGestures(){
-
-        for(var i = 0; i <= this.gestureOptions.length - 1; i++){
-            console.log(this.gestureOptions[i].name);
-        }
     }
 
     generateRandomNumber() {
