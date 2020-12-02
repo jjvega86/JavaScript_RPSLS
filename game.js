@@ -20,7 +20,7 @@
 // 3 - Write DisplayRules method for Game Class and call in runGame DONE
 // 4 - Write game logic in multiple helper methods that get called in runGame
 
-
+debugger; // drop breakpoint before prompt functions run
 class Game{
     constructor(){
         this.displayRules(); // this makes the very first action of the game the rules display when Game object is instantiated.
@@ -40,11 +40,12 @@ class Game{
         let currentRound = 0;
         let gameFinished;
 
-        while(!gameFinished){
+        do{
             this.compareGestures();
-            gameFinished = this.checkForGameFinish(currentRound);
             currentRound++;
-        }
+            gameFinished = this.checkForGameFinish(currentRound);
+
+        } while(!gameFinished)
 
         this.declareWinner();
            
@@ -104,7 +105,7 @@ class Game{
             console.log("Player One Wins!");
         }
         else{
-            console.log("PLayer Two Wins!");
+            console.log("Player Two Wins!");
         }
     }
 
