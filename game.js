@@ -18,7 +18,8 @@
 // 1 - Split classes into different files. How to link into base game.js? DONE
 // 2 - Write ChooseGesture methods for both Human and Computer child classes DONE
 // 3 - Write DisplayRules method for Game Class and call in runGame DONE
-// 4 - Write game logic in multiple helper methods that get called in runGame
+// 4 - Write game logic in multiple helper methods that get called in runGame DONE
+// 5 - Implement multiple options for rounds (5,7,9, etc)
 
 debugger; // drop breakpoint before prompt functions run
 class Game{
@@ -33,17 +34,19 @@ class Game{
         // display rules DONE
         // multiplayer or single player? DONE
         // compare gestures DONE
-        // check for winner
-        // display winner
+        // check for winner DONE
+        // display winner DONE
         // ask to play again
 
         let currentRound = 0;
         let gameFinished;
 
         do{
+            this.displayCurrentScore();
             this.compareGestures();
             currentRound++;
             gameFinished = this.checkForGameFinish(currentRound);
+            console.clear();
 
         } while(!gameFinished)
 
@@ -76,7 +79,12 @@ class Game{
 
     }
 
+    displayCurrentScore(){
+        console.log("The current score is: Player 1 - " + this.playerOne.currentScore + "and Player 2 - " + this.playerTwo.currentScore);
+    }
+
     compareGestures(){
+        console.clear();
         let playerOneChoice = this.playerOne.chooseGesture(); // Rock
         let playerTwoChoice = this.playerTwo.chooseGesture(); // Scissors
 
@@ -84,9 +92,13 @@ class Game{
 
             if(playerOneChoice.name === playerTwoChoice.losesTo[i]){ // if Player 2's choice is in the Player 2 LosesTo array, Player 1 wins
                 this.playerOne.currentScore = 1;
+                console.log("Player One chose " + playerOneChoice.name + "Player 2 chose " + playerTwoChoice.name);
+                console.log("Player One wins the round!")
             }
             else if(playerTwoChoice.name === playerOneChoice.losesTo[i]){ // if Player 1's choice is in the Player 1 LosesTo array, Player 2 wins
                 this.playerTwo.currentScore = 1;
+                console.log("Player One chose " + playerOneChoice.name + "Player 2 chose " + playerTwoChoice.name);
+                console.log("Player Two wins the round!")
             }
         }
     
@@ -101,12 +113,14 @@ class Game{
     }
 
     declareWinner(){
+        console.clear();
         if(this.playerOne.currentScore > this.playerTwo.currentScore ){
-            console.log("Player One Wins!");
+            console.log("Game over. Player One Wins!");
         }
         else{
-            console.log("Player Two Wins!");
+            console.log("Game over. Player Two Wins!");
         }
+        
     }
 
 }
