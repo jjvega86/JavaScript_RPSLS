@@ -46,8 +46,12 @@ class Game{
             var tieCheck = this.compareGestures();
             if(!tieCheck){
                 currentRound++;
+
             }
-            
+            else{
+                console.log("It's a tie!");
+
+            }
             gameFinished = this.checkForGameFinish(currentRound);
             console.clear();
 
@@ -90,7 +94,7 @@ class Game{
         console.clear();
         let playerOneChoice = this.playerOne.chooseGesture(); // Rock
         let playerTwoChoice = this.playerTwo.chooseGesture(); // Scissors
-        let isATie = false;
+        let isATie = true;
 
         for(var i = 0; i <= playerOneChoice.losesTo.length - 1; i++){
 
@@ -98,21 +102,22 @@ class Game{
                 this.playerOne.currentScore = 1;
                 console.log("Player One chose " + playerOneChoice.name + " Player 2 chose " + playerTwoChoice.name);
                 console.log("Player One wins the round!")
+                isATie = false;
             }
             else if(playerTwoChoice.name === playerOneChoice.losesTo[i]){ // if Player 1's choice is in the Player 1 LosesTo array, Player 2 wins
                 this.playerTwo.currentScore = 1;
                 console.log("Player One chose " + playerOneChoice.name + " Player 2 chose " + playerTwoChoice.name);
                 console.log("Player Two wins the round!")
+                isATie = false;
             }
-            else{
-                console.log("It's a tie!");
-                isATie = true;
-            }
+          
         }
 
         return isATie;
     
     }
+
+    
 
     checkForGameFinish(currentRound){
         let gameFinished = false;
