@@ -43,8 +43,11 @@ class Game{
 
         do{
             this.displayCurrentScore();
-            this.compareGestures();
-            currentRound++;
+            var tieCheck = this.compareGestures();
+            if(!tieCheck){
+                currentRound++;
+            }
+            
             gameFinished = this.checkForGameFinish(currentRound);
             console.clear();
 
@@ -80,27 +83,34 @@ class Game{
     }
 
     displayCurrentScore(){
-        console.log("The current score is: Player 1 - " + this.playerOne.currentScore + "and Player 2 - " + this.playerTwo.currentScore);
+        console.log("The current score is: Player 1 - " + this.playerOne.currentScore + " and Player 2 - " + this.playerTwo.currentScore);
     }
 
     compareGestures(){
         console.clear();
         let playerOneChoice = this.playerOne.chooseGesture(); // Rock
         let playerTwoChoice = this.playerTwo.chooseGesture(); // Scissors
+        let isATie = false;
 
         for(var i = 0; i <= playerOneChoice.losesTo.length - 1; i++){
 
             if(playerOneChoice.name === playerTwoChoice.losesTo[i]){ // if Player 2's choice is in the Player 2 LosesTo array, Player 1 wins
                 this.playerOne.currentScore = 1;
-                console.log("Player One chose " + playerOneChoice.name + "Player 2 chose " + playerTwoChoice.name);
+                console.log("Player One chose " + playerOneChoice.name + " Player 2 chose " + playerTwoChoice.name);
                 console.log("Player One wins the round!")
             }
             else if(playerTwoChoice.name === playerOneChoice.losesTo[i]){ // if Player 1's choice is in the Player 1 LosesTo array, Player 2 wins
                 this.playerTwo.currentScore = 1;
-                console.log("Player One chose " + playerOneChoice.name + "Player 2 chose " + playerTwoChoice.name);
+                console.log("Player One chose " + playerOneChoice.name + " Player 2 chose " + playerTwoChoice.name);
                 console.log("Player Two wins the round!")
             }
+            else{
+                console.log("It's a tie!");
+                isATie = true;
+            }
         }
+
+        return isATie;
     
     }
 
