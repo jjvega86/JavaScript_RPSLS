@@ -23,8 +23,9 @@
 
 class Game{
     constructor(){
-        this.playerOne = new Human("Tim");
-        this.playerTwo = new Computer("Hal");
+        this.displayRules(); // this makes the very first action of the game the rules display when Game object is instantiated.
+        this.playerOne = new Human(prompt("What is your name?"));
+        this.chooseGameTypeAndSetNames();
 
     }
 
@@ -35,10 +36,9 @@ class Game{
         // check for winner
         // display winner
         // ask to play again
-        this.displayRules();
+        
 
-        let choice1 = this.playerOne.chooseGesture();
-        let choice2 = this.playerTwo.chooseGesture();
+        
     }
 
     displayRules(){
@@ -47,6 +47,29 @@ class Game{
         console.log("Lizard poisons Spock, Spock smashes Scissors, Scissors dcapitates Lizard,");
         console.log("Lizard eats Paper, Paper disproves Spock, and Spock vaporizes Rock!");
         console.log("Each player chooses a gesture. One gesture will beat the other. Best out of three wins!");
+    }
+
+    chooseGameTypeAndSetNames(){
+        console.clear(); // clears the console after rules are displayed
+        let input = prompt("Would you like to play multiplayer or single player? <1 for Single, 2 for Multi>").toLocaleLowerCase();
+
+        if (input === 1){
+            this.playerTwo = new Computer("Hal");
+        }
+        else if (input === 2){
+            this.playerTwo = new Human(prompt("What is the name of Player 2?"));
+        }
+        else{
+            alert("Input not recognized! Press OK to try again.");
+            this.chooseGameTypeAndSetNames();
+        }
+
+    }
+
+    compareGestures(){
+        let choice1 = this.playerOne.chooseGesture();
+        let choice2 = this.playerTwo.chooseGesture();
+
     }
 
 }
