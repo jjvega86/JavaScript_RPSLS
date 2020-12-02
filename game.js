@@ -30,19 +30,22 @@ class Game{
     }
 
     runGame(){
-        // display rules
-        // multiplayer or single player?
-        // compare gestures
+        // display rules DONE
+        // multiplayer or single player? DONE
+        // compare gestures DONE
         // check for winner
         // display winner
         // ask to play again
 
         let currentRound = 0;
-        let roundWinner = this.compareGestures();
-        
-        
+        let winner;
 
-        
+        while(!winner){
+            this.compareGestures();
+            winner = this.checkForWinner();
+            currentRound++;
+        }
+           
     }
 
     displayRules(){
@@ -84,6 +87,15 @@ class Game{
             }
         }
     
+    }
+
+    checkForWinner(){
+        let winnerFound = false;
+        if(this.playerOne.currentScore === 3 || this.playerTwo.currentScore === 3){
+            winnerFound = true;
+        }
+
+        return winnerFound;
     }
 
 }
