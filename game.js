@@ -1,4 +1,6 @@
 "use strict";
+const prompt = require('prompt-sync')();
+const {Human, Computer} = require('./player');
 
 // Rock, Paper, Scissors, Lizard, Spock
 // two player game (human or computer) - incorporate inheritance here
@@ -24,7 +26,8 @@ debugger; // drop breakpoint before prompt functions run
 class Game{
     constructor(){
         this.displayRules(); // this makes the very first action of the game the rules display when Game object is instantiated.
-        this.playerOne = new Human(prompt("What is your name?"));
+        const playerOneName = prompt('What is your name, Player One?');
+        this.playerOne = new Human(playerOneName);
         this.chooseGameTypeAndSetNames();
 
     }

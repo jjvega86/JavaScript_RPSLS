@@ -68,4 +68,5 @@ class Computer extends Player{
 
 }
 
-
+module.exports = Human;
+module.exports = Computer;
