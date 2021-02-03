@@ -1,5 +1,8 @@
 // Great video for reference about inheritance (especially extends and super): https://www.youtube.com/watch?v=CwAU1wYeHiM&ab_channel=StephenMayeux
 // why inheritance? DRY - Don't repeat yourself
+const {Rock, Paper, Scissors, Lizard, Spock} = require('./gesture');
+const prompt = require('prompt-sync')();
+
 
 class Player{ // parent
     constructor(name){
@@ -48,7 +51,6 @@ class Human extends Player{ // extends allows for inheriting of any properties a
     constructor(name){
         super(name); // super calls the constructor method of parent class. Pass in required parameters, can also override if needed     
     }
-   
 }
 
 class Computer extends Player{
@@ -68,5 +70,5 @@ class Computer extends Player{
 
 }
 
-module.exports = Human;
-module.exports = Computer;
+module.exports.Human = Human;
+module.exports.Computer = Computer;

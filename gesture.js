@@ -51,3 +51,9 @@ class Spock extends Gesture{
     }
     
 }
+
+exports.Rock = Rock;
+exports.Paper = Paper;
+exports.Scissors = Scissors;
+exports.Lizard = Lizard;
+exports.Spock = Spock;

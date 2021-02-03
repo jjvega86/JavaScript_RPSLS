@@ -26,8 +26,7 @@ debugger; // drop breakpoint before prompt functions run
 class Game{
     constructor(){
         this.displayRules(); // this makes the very first action of the game the rules display when Game object is instantiated.
-        const playerOneName = prompt('What is your name, Player One?');
-        this.playerOne = new Human(playerOneName);
+        this.playerOne = new Human(prompt('What is your name, Player One? \n'));
         this.chooseGameTypeAndSetNames();
 
     }
@@ -47,6 +46,7 @@ class Game{
             var tieCheck = this.compareGestures();
             if(!tieCheck){
                 currentRound++;
+                this.displayCurrentScore();
 
             }
             else{
@@ -63,16 +63,16 @@ class Game{
     }
 
     displayRules(){
-        console.log("Welcome to Rock, Paper, Scissors, Lizard, Spock!");
-        console.log("Rock crushes Scissors, Paper Covers Rock, Rock Crushes Lizard,");
-        console.log("Lizard poisons Spock, Spock smashes Scissors, Scissors dcapitates Lizard,");
-        console.log("Lizard eats Paper, Paper disproves Spock, and Spock vaporizes Rock!");
-        console.log("Each player chooses a gesture. One gesture will beat the other. Best out of three wins!");
+        console.log("Welcome to Rock, Paper, Scissors, Lizard, Spock! \n");
+        console.log("Rock crushes Scissors, Paper Covers Rock, Rock Crushes Lizard, \n");
+        console.log("Lizard poisons Spock, Spock smashes Scissors, Scissors dcapitates Lizard, \n");
+        console.log("Lizard eats Paper, Paper disproves Spock, and Spock vaporizes Rock! \n");
+        console.log("Each player chooses a gesture. One gesture will beat the other. Best out of three wins! \n");
     }
 
     chooseGameTypeAndSetNames(){
-        console.clear(); // clears the console after rules are displayed
-        let input = prompt("Would you like to play multiplayer or single player? <1 for Single, 2 for Multi>");
+        console.log(`Would you like to play multiplayer or single player? <1 for Single, 2 for Multi>`)
+        let input = prompt();
 
         if (input === "1"){
             this.playerTwo = new Computer("Hal");
@@ -88,11 +88,10 @@ class Game{
     }
 
     displayCurrentScore(){
-        console.log("The current score is: Player 1 - " + this.playerOne.currentScore + " and Player 2 - " + this.playerTwo.currentScore);
+        console.log(`The current score is: Player One ${this.playerOne.currentScore}, Player Two ${this.playerTwo.currentScore} `);
     }
 
     compareGestures(){
-        console.clear();
         let playerOneChoice = this.playerOne.chooseGesture(); // Rock
         let playerTwoChoice = this.playerTwo.chooseGesture(); // Scissors
         let isATie = true;
