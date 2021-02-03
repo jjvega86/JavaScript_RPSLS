@@ -1,0 +1,19 @@
+{
+  "name": "javascript_rpsls",
+  "version": "1.0.0",
+  "description": "JavaScript version of Rock, Paper, Scissors, Lizard, Spock - an exploration of OOP in JavaScript with a focus on building classes that handle primary data of application.",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjvega86/JavaScript_RPSLS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjvega86/JavaScript_RPSLS/issues"
+  },
+  "homepage": "https://github.com/jjvega86/JavaScript_RPSLS#readme"
+}
