@@ -1,6 +1,7 @@
 "use strict";
 const prompt = require('prompt-sync')();
-const {Human, Computer} = require('./player');
+const { Computer } = require('./players/computer');
+const { Human } = require('./players/human');
 
 // Rock, Paper, Scissors, Lizard, Spock
 // two player game (human or computer) - incorporate inheritance here
@@ -81,7 +82,7 @@ class Game{
             this.playerTwo = new Human(prompt("What is the name of Player 2?"));
         }
         else{
-            alert("Input not recognized! Press OK to try again.");
+            console.log("Input not recognized! Press OK to try again.");
             this.chooseGameTypeAndSetNames();
         }
 
